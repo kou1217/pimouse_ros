@@ -51,7 +51,7 @@ class MotorTest(unittest.TestCase):
         self.file_check("rtmotor_raw_l0",0,"don't stop after 1[s]")
 
     def test_on_off(self):
-        off = rospy.Service Proxy('motor_off', Trigger)
+        off = rospy.ServiceProxy('motor_off', Trigger)
         ret = off()
         self.assertEqual(r.success, True, "motor off does not succeeded")
         self.assertEqual(r.message, "OFF", "motor off wrong message")
