@@ -34,11 +34,11 @@ class BuzzerTest(unittest.TestCase):
         self.client.send_goal(goal, feedback_cb=self.feedback_cb)
         self.client.wait_for_result()
 
-        self.assertTrue(self.client.get_result(), "inbalic result")
-        self.assertEqual(goal.freqs, self.device_balues, "inbalid feedback:"
+        self.assertTrue(self.client.get_result(), "invalid result")
+        self.assertEqual(goal.freqs, self.device_values, "invalid feedback:"
                 +",".join([str(e) for e in self.device_values]))
 
-        self.device_balues = []
+        self.device_values = []
         self.client.send_goal(goal, feedback_cb=self.feedback_cb)
         self.client.wait_for_result(rospy.Duration.from_sec(0.5))
 

@@ -20,10 +20,10 @@ def exec_music(goal):
     fb = MusicFeedback()
 
     for i, f in enumerate(goal.freqs):
-        fb.remaining_steps = len(goal.freqs) - f
+        fb.remaining_steps = len(goal.freqs) - i
         music.publish_feedback(fb)
 
-        if musi.is_preempt_requested():
+        if music.is_preempt_requested():
             write_freq(0)
             r.finished = False
             music.set_preempted(r)
