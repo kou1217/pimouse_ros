@@ -10,7 +10,7 @@ project(pimouse_ros)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
-  std_srvss
+  std_srvs
   message_generation
 )
 
@@ -55,11 +55,10 @@ find_package(catkin REQUIRED COMPONENTS
  )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+ add_service_files(
+   FILES
+   TimedMotion.srv
+ )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
