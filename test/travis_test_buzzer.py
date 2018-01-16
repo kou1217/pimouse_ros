@@ -8,7 +8,7 @@ from pimouse_ros.msg import MusicAction, MusicResult, MusicFeedback, MusicGoal
 
 class BuzzerTest(unittest.TestCase):
     def setUp(self):
-        self.client = actionlib.SimpleActionClient("Music", MusicAction)
+        self.client = actionlib.SimpleActionClient("music", MusicAction)
         self.device_values = []
 
     def test_node_exist(self):
@@ -36,7 +36,7 @@ class BuzzerTest(unittest.TestCase):
 
         self.assertTrue(self.client.get_result(), "invalid result")
         self.assertEqual(goal.freqs, self.device_values, "invalid feedback:"
-                +",".join([str(e) for e in self.device_values]))
+                + ",".join([str(e) for e in self.device_values]))
 
         self.device_values = []
         self.client.send_goal(goal, feedback_cb=self.feedback_cb)
